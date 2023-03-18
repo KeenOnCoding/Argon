@@ -15,7 +15,6 @@
 
 <section class="section section-components pb-0" id="section-components">
     <div class="container">
-        <!--<form class="search-form">-->
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group" [ngClass]="{'focused':focus===true}">
@@ -40,14 +39,14 @@
 
                 </div>
                 <div class="col-lg-2 col-sm-6">
-                    <button class="btn btn-search btn-0 btn-primary btn-default"  (ngSubmit)="onSubmit()">Search</button>
+                    <button class="btn btn-search btn-0 btn-primary btn-default"  (click)="onSubmit()">Search</button>
                 </div>
 
             </div>
-        <!--</form>-->
             <div class="col-lg-8 mt-5 mt-lg-0">
-                <div *ngFor="let vacantion of vacantions | filter:searchText">
-                    <div class="custom-tab-content flex-column flex-md-row zoom">
+                <div *ngFor="let vacantion of result">
+                    <div class="custom-tab-content flex-column flex-md-row zoom" (click)="goJob(vacantion.id)">
+                        <!--<a [routerLink]="['job']" [queryParams]="{ page:{{ vacantion.id }} }"></a>-->
                         <div class="tab-content">
                             <h3>{{vacantion.title}}<span style="float:right;">jklllkj</span></h3>
                             <h6>{{vacantion.wage}}</h6>

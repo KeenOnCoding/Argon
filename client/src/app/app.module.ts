@@ -9,12 +9,14 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { JobComponent } from './job/job.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    SearchComponent
+    SearchComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
