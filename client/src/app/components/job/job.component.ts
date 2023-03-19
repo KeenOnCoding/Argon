@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Vacancy } from '../../models/vacancy';
+import { DataStorageService } from '../../services/data-storage.service';
 @Component({
     selector: 'app-job',
     templateUrl: './job.component.html',
@@ -8,19 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JobComponent implements OnInit {
 
-    id: any;
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute, private data: DataStorageService) { }
+
+    vacantion: Vacancy;
 
     ngOnInit() {
         this.route.queryParams
             .subscribe(params => {
-                console.log(params); // { order: "popular" }
+                if (params['id']) {
+                    this.vacantion = this.data.getJob(params['id']);
+                }
 
-                this.id = params['id'];
-
-                console.log(this.id); // popular
             }
-            );
+        );
     }
-
 }

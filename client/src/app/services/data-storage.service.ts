@@ -1,30 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { ActivatedRoute, Router } from "@angular/router";
-@Component({
-    selector: 'app-seatch',
-    templateUrl: './search.component.html',
-    styleUrls: ['./search.component.css']
+import { Injectable } from '@angular/core';
+import { Vacancy } from '../models/vacancy';
+
+@Injectable({
+  providedIn: 'root'
 })
+export class DataStorageService {
 
+   // private currentUser = new BehaviorSubject<string | null>(null);
+    //public currentUserChanged$ = this.currentUser.asObservable();
 
-export class SearchComponent implements OnInit,OnDestroy {
-    focus;
-    focus1;
-    focus5;
+    public vacantions: Array<Vacancy>;
 
-    searchText: string;
-    vacantions: Array<Vacancy>;
-    result: Array<Vacancy>;
-    private destroy$ = new Subject();
-
-    constructor(private router: Router) { }
-    ngOnDestroy() {
-        this.destroy$.next(null);
-        this.destroy$.unsubscribe();
-    }
-
-    ngOnInit(): void {
+    constructor() {
         this.vacantions = [
             { id: 1, title: 'Manager', company: 'Microsoft', description: 'Raw denim you probably have heard of them jean shorts Austin.Nesciunt tofu stumptown aliqua, retro synth master cleanse.Mustache cliche tempor, williamsburg carles vegan helvetica.Reprehenderit butcher retro keffiyeh dreamcatcher synth.', wage: '10K' },
             { id: 2, title: 'Developer', company: 'Microsoft', description: 'Raw denim you probably have heard of them jean shorts Austin.Nesciunt tofu stumptown aliqua, retro synth master cleanse.Mustache cliche tempor, williamsburg carles vegan helvetica.Reprehenderit butcher retro keffiyeh dreamcatcher synth.', wage: '9K' },
@@ -37,27 +24,16 @@ export class SearchComponent implements OnInit,OnDestroy {
             { id: 9, title: 'Q&A', company: 'Microsoft', description: 'Raw denim you probably have heard of them jean shorts Austin.Nesciunt tofu stumptown aliqua, retro synth master cleanse.Mustache cliche tempor, williamsburg carles vegan helvetica.Reprehenderit butcher retro keffiyeh dreamcatcher synth.', wage: '14K' },
             { id: 10, title: 'Tester', company: 'Microsoft', description: 'Raw denim you probably have heard of them jean shorts Austin.Nesciunt tofu stumptown aliqua, retro synth master cleanse.Mustache cliche tempor, williamsburg carles vegan helvetica.Reprehenderit butcher retro keffiyeh dreamcatcher synth.', wage: '2K' }
         ];
-    }
-    goJob(id: any) {
-        this.router.navigate(
-            ['/job'],
-            { queryParams: { id: id } }
-        );
-    }
-    onSubmit(): void{
-      
-        this.result = this.vacantions.filter((vacantion) =>
-        {
-            console.log(vacantion['title'].toLowerCase().includes(this.searchText));
-            return vacantion.title.toLowerCase().includes(this.searchText.toLowerCase());
-        })
+        for (var i = 0; i < this.vacantions.length; i++) {
+            this.setJob(this.vacantions[i]);
+        }
     }
 
-}
-export interface Vacancy {
-    id: any;
-    title: any;
-    wage: any;
-    company: any;
-    description: any;
+    setJob(vacancy: Vacancy) {
+        
+            sessionStorage.setItem(vacancy.id, JSON.stringify(vacancy));
+        }
+    getJob(id): Vacancy{
+        return JSON.parse(sessionStorage.getItem(id));
+    }
 }

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { JobComponent } from './job/job.component';
+import { HomeComponent } from './components/home/home.component';
+import { JobComponent } from './components/job/job.component';
 
 const routes: Routes = [
     { path: 'job', component: JobComponent },
