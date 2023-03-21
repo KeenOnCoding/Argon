@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SearchComponent } from './components/search/search.component';
 import { JobComponent } from './components/job/job.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { JobComponent } from './components/job/job.component';
     HomeComponent,
     NavigationComponent,
     SearchComponent,
-    JobComponent
+    JobComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
