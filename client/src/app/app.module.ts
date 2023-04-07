@@ -11,6 +11,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SearchComponent } from './components/search/search.component';
 import { JobComponent } from './components/job/job.component';
 import { LoginComponent } from './components/login/login.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginComponent } from './components/login/login.component';
     NavigationComponent,
     SearchComponent,
     JobComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
