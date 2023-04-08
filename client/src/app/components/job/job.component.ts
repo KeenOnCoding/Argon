@@ -23,4 +23,5 @@ export class JobComponent implements OnInit {
             }
         );
     }
+    onSubmit() { }
 }
