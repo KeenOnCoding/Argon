@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Vacancy } from '../../models/vacancy';
 import { DataStorageService } from '../../services/data-storage.service';
 @Component({
@@ -9,7 +9,7 @@ import { DataStorageService } from '../../services/data-storage.service';
 })
 export class JobComponent implements OnInit {
 
-    constructor(private route: ActivatedRoute, private data: DataStorageService) { }
+    constructor(private router: Router, private route: ActivatedRoute, private data: DataStorageService) { }
 
     vacantion: Vacancy;
 
@@ -22,6 +22,9 @@ export class JobComponent implements OnInit {
 
             }
         );
+    }
+    navigateResume() {
+        this.router.navigate(['/resume']);
     }
     onSubmit() { }
 }

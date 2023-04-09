@@ -13,6 +13,7 @@ import { JobComponent } from './components/job/job.component';
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AccountComponent } from './components/account/account.component';
+import { ResumeComponent } from './components/resume/resume.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AccountComponent } from './components/account/account.component';
     JobComponent,
     LoginComponent,
     FooterComponent,
-    AccountComponent
+    AccountComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,

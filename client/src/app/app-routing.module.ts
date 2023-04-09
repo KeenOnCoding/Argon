@@ -6,8 +6,10 @@ import { AccountComponent } from './components/account/account.component';
 import { HomeComponent } from './components/home/home.component';
 import { JobComponent } from './components/job/job.component';
 import { LoginComponent } from './components/login/login.component';
+import { ResumeComponent } from './components/resume/resume.component';
 
 const routes: Routes = [
+    { path: 'resume', component: ResumeComponent },
     { path: 'account', component: AccountComponent },
     { path: 'login', component: LoginComponent },
     { path: 'job', component: JobComponent },
