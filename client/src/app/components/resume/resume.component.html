@@ -5,7 +5,7 @@
                 <div class="custom-tab-content flex-column flex-md-row">
                     <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
                         <li class="nav-item" [ngbNavItem]="1">
-                            <a class="nav-link" ngbNavLink> Home</a>
+                            <a class="nav-link-default" ngbNavLink>Home</a>
                             <ng-template ngbNavContent>
                                 <div class="tab-content">
                                     <p class="description">
@@ -22,8 +22,8 @@
                             </ng-template>
                         </li>
                         <li class="nav-item" [ngbNavItem]="2">
-                            <a class="nav-link" ngbNavLink>
-                                Profile
+                            <a class="nav-link-default" ngbNavLink>
+                                Upload
                             </a>
                             <ng-template ngbNavContent>
                                 <div class="tab-content">
