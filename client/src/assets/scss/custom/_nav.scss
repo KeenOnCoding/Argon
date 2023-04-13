@@ -20,7 +20,8 @@
 
     .nav-link {
         padding: $nav-pills-padding-y $nav-pills-padding-x;
-        color: $nav-pills-link-color;
+        //color: $nav-pills-link-color;
+        color: $nav-pills-link-color-default;
         font-weight: 500;
         font-size: $font-size-sm;
         box-shadow: $nav-pills-box-shadow;
@@ -35,13 +36,13 @@
     .nav-link.active,
     .show > .nav-link {
         color: $nav-pills-link-active-color;
-        background-color: $nav-pills-link-active-bg; 
+        background-color: $nav-pills-link-active-bg;
     }
 
     .nav-link-default.active,
     .show > .nav-link {
-        color: $nav-pills-link-active-color;
-        background-color: #172b4d
+        //color: $nav-pills-link-active-color-default;
+        background-color: $nav-pills-link-active-bg-default;
     }
 
     @include media-breakpoint-down(xs) {
