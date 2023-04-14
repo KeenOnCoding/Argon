@@ -17,10 +17,22 @@
     .nav-item:not(:last-child) {
         padding-right: $nav-pills-space-x;
     }
-
     .nav-link {
         padding: $nav-pills-padding-y $nav-pills-padding-x;
-        //color: $nav-pills-link-color;
+        color: $nav-pills-link-color;
+        //color: $nav-pills-link-color-default;
+        font-weight: 500;
+        font-size: $font-size-sm;
+        box-shadow: $nav-pills-box-shadow;
+        background-color: $nav-pills-bg;
+        transition: $transition-base;
+
+        &:hover {
+            color: $nav-pills-link-hover-color;
+        }
+    }
+    .nav-link-default {
+        padding: $nav-pills-padding-y $nav-pills-padding-x;
         color: $nav-pills-link-color-default;
         font-weight: 500;
         font-size: $font-size-sm;
@@ -32,16 +44,14 @@
             color: $nav-pills-link-hover-color;
         }
     }
-
     .nav-link.active,
     .show > .nav-link {
         color: $nav-pills-link-active-color;
         background-color: $nav-pills-link-active-bg;
     }
-
     .nav-link-default.active,
-    .show > .nav-link {
-        //color: $nav-pills-link-active-color-default;
+    .show > .nav-link-default {
+        color: $nav-pills-link-active-color-default;
         background-color: $nav-pills-link-active-bg-default;
     }
 
