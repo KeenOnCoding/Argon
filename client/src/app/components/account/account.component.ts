@@ -12,7 +12,14 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
     navigateResume() {
         this.router.navigate(['/resume']);
+    }
+    navigatePersonalInfo() {
+            this.router.navigate(['/personal']);
+    }
+    navigateFavorites() {
+        this.router.navigate(['/favorites']);
     }
 }
