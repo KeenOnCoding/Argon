@@ -16,6 +16,8 @@ import { AccountComponent } from './components/account/account.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { InfoComponent } from './components/info/info.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { ResumesComponent } from './components/resumes/resumes.component';
+import { CreateresumeComponent } from './components/createresume/createresume.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     AccountComponent,
     ResumeComponent,
     InfoComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    ResumesComponent,
+    CreateresumeComponent
   ],
   imports: [
     BrowserModule,

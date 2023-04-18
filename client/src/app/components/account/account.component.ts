@@ -13,8 +13,8 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    navigateResume() {
-        this.router.navigate(['/resume']);
+    navigateResumes() {
+        this.router.navigate(['/resumes']);
     }
     navigatePersonalInfo() {
             this.router.navigate(['/personal']);
