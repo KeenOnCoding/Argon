@@ -5,8 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './createresume.component.html',
   styleUrls: ['./createresume.component.css']
 })
-export class CreateresumeComponent implements OnInit {
-
+export class CreateresumeComponent
+    implements OnInit {
+    focus;
   constructor() { }
 
   ngOnInit(): void {
