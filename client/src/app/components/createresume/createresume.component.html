@@ -3,14 +3,26 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-8">
                 <div class="custom-tab-content flex-column flex-md-row">
-                    <div class="tab-content">
+                    <div class="tab-content py-5 bg-secondary">
                         <div class="row">
                             <div class="col-lg-12">
+                                <small class="d-block text-uppercase font-weight-bold mb-3">First Name</small>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">Last Name</small>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
+
+                                    <input class="form-control" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">Birthday</small>
+                                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input class="form-control datepicker" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
