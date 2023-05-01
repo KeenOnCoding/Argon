@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,11 +30,14 @@ export class CreateresumeComponent implements OnInit {
     active1 = 1;
     active2 = 1;
 
-    constructor(private modalService: NgbModal, calendar: NgbCalendar) {
+    constructor(private modalService: NgbModal, calendar: NgbCalendar, private router: Router) {
         this.fromDate = calendar.getToday();
         this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
 
     ngOnInit() { }
 
+    navigateResumes() {
+        this.router.navigate(['/resumes/']);
+    }
 }
