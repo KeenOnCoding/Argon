@@ -18,11 +18,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group" [ngClass]="{'focused':focus===true}">
-                        <div class="input-group mb-4">
+                        <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                             </div>
-                            <input class="form-control" [(ngModel)]="searchText" style="height: 58px; font-size:1.25rem;" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                            <input class="form-control" [(ngModel)]="searchText" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
                         </div>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                             </div>
-                            <input class="form-control" [(ngModel)]="searchText" style="height: 58px; font-size:1.25rem;" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                            <input class="form-control" [(ngModel)]="searchText" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
                         </div>
 
                     </div>
 
                 </div>
                 <div class="col-lg-2">
-                    <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default"  (click)="onSubmit()">Search</button>
+                    <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;" (click)="onSubmit()">Search</button>
                 </div>
 
             </div>
