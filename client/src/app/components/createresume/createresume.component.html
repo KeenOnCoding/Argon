@@ -8,12 +8,11 @@
                             <div class="col-lg-12">
                                 <small class="d-block text-uppercase font-weight-bold mb-3">First Name</small>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    <input class="form-control" [(ngModel)]="resume.firstName" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Last Name</small>
                                 <div class="form-group">
-
-                                    <input class="form-control" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    <input class="form-control" [(ngModel)]="resume.lastName" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Birthday</small>
                                 <div class="form-group" [ngClass]="{'focused':focus2===true}">
@@ -21,20 +20,20 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                         </div>
-                                        <input class="form-control datepicker" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                        <input class="form-control datepicker" [(ngModel)]="resume.birthday" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
                                     </div>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Job Title</small>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Job Title" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    <input class="form-control" [(ngModel)]="resume.jobTitle" placeholder="Job Title" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Company Name</small>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Company Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    <input class="form-control" [(ngModel)]="resume.companyName" placeholder="Company Name" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Industry</small>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Start Date" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    <input class="form-control" [(ngModel)]="resume.industry" placeholder="Start Date" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6">
@@ -46,7 +45,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control datepicker" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                                <input class="form-control datepicker" [(ngModel)]="resume.startDate" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
                                             </div>
                                         </div>
                                     </div>
@@ -59,21 +58,17 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control datepicker" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                                <input class="form-control datepicker" [(ngModel)]="resume.endDate"placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                    <small class="d-block text-uppercase font-weight-bold mb-3">DESCRIPTION</small>
-                                    
-                                    <div class="form-group">
-                                        <textarea class="form-control col-lg-12">
-
-                                    </textarea>
-                                    </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">DESCRIPTION</small>
+                                <div class="form-group">
+                                        <textarea class="form-control col-lg-12"> </textarea>
+                                </div>
                                 <div>
-                                    <button class="btn btn-0 btn-primary btn-default" style="float: right;" (click)="navigateResumes()">CREATE</button>
+                                    <button class="btn btn-0 btn-primary btn-default" style="float: right;" (click)="createResume()">CREATE</button>
                                 </div>
                             </div>
                         </div>

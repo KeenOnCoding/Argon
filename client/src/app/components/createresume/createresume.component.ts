@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Resume } from '../../models/resume';
+import { LocalStoreManager } from '../../services/local-store-manager.service';
 
 @Component({
     selector: 'app-createresume',
@@ -11,6 +13,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class CreateresumeComponent implements OnInit {
 
+    resume: Resume = new Resume();
+    resumes: Resume[] = [];
     fromDate: NgbDate;
     toDate: NgbDate;
     hoveredDate: NgbDate;
@@ -30,14 +34,20 @@ export class CreateresumeComponent implements OnInit {
     active1 = 1;
     active2 = 1;
 
-    constructor(private modalService: NgbModal, calendar: NgbCalendar, private router: Router) {
+    constructor(private modalService: NgbModal, calendar: NgbCalendar,
+        private router: Router,
+        private localStr: LocalStoreManager) {
         this.fromDate = calendar.getToday();
         this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
 
     ngOnInit() { }
 
-    navigateResumes() {
+    createResume() {
+        
+
+        this.resumes.push(this.resume);
+        this.localStr.create("resumes", this.resumes );
         this.router.navigate(['/resumes/']);
     }
 }
