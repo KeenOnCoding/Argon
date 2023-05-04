@@ -8,12 +8,11 @@ export class LocalStoreManager {
 
     constructor() { }
 
-    create(key: string, value: Resume[]) {
+    create(key: string, value: any) {
         localStorage.setItem(key, JSON.stringify(value));
     }
     get(key: string) {
         let result = localStorage.getItem(key);
-        console.log(result);
         return result;
     }
 }
