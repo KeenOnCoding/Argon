@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Resume } from '../../models/resume';
+import { LocalStoreManager } from '../../services/local-store-manager.service';
+
 
 @Component({
   selector: 'app-resume',
@@ -11,9 +14,17 @@ export class ResumeComponent implements OnInit {
     active = 1;
     active1 = 1;
     active2 = 1;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+    resumes: Resume[] = [];
+    isEmpty: boolean = true;
 
+    constructor(private localStr: LocalStoreManager) { }
+
+    ngOnInit(): void {
+        let val = this.localStr.get('resumes');
+        this.resumes = JSON.parse(val) as Resume[];
+        if (this.resumes != null) {
+            this.isEmpty = false;
+        }
+    }
 }

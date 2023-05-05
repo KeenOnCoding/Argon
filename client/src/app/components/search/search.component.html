@@ -22,7 +22,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                             </div>
-                            <input class="form-control" [(ngModel)]="searchText" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                            <input class="form-control" [(ngModel)]="searchText" (keyup.enter)="onSubmit()" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,6 @@
                         </div>
 
                     </div>
-
                 </div>
                 <div class="col-lg-2">
                     <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;" (click)="onSubmit()">Search</button>

@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Resume } from '../../models/resume';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
+
 @Component({
     selector: 'app-resumes',
     templateUrl: './resumes.component.html',
     styleUrls: ['./resumes.component.css']
 })
 export class ResumesComponent implements OnInit {
-
 
     resumes: Resume[] = [];
     isEmpty: boolean = true;
