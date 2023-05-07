@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStoreManager } from '../../services/local-store-manager.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    constructor(private localStr: LocalStoreManager) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+
+       //this.localStr.flush();
   }
 
 }

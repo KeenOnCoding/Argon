@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Resume } from '../../models/resume';
+import { DataStorageService } from '../../services/data-storage.service';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
 
 
 @Component({
-  selector: 'app-resume',
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css']
+    selector: 'app-resume',
+    templateUrl: './resume.component.html',
+    styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
     page = 2;
@@ -16,15 +18,20 @@ export class ResumeComponent implements OnInit {
     active2 = 1;
 
     resumes: Resume[] = [];
-    isEmpty: boolean = true;
+    resume: Resume;
+    id: any;
 
-    constructor(private localStr: LocalStoreManager) { }
+    constructor(private router: Router, private route: ActivatedRoute, private localStr: LocalStoreManager) { }
 
     ngOnInit(): void {
+        this.route.queryParams
+            .subscribe(params => {
+                if (params['id']) {
+                    this.id = params['id'];
+                }
+            });
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
-        if (this.resumes != null) {
-            this.isEmpty = false;
-        }
+        this.resume = this.resumes.find(resume => resume.id == this.id);
     }
 }

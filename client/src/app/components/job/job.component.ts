@@ -24,7 +24,7 @@ export class JobComponent implements OnInit {
         );
     }
     navigateResume() {
-        this.router.navigate(['/resume']);
+        this.router.navigate(['/resume/send']);
     }
     onSubmit() { }
 }

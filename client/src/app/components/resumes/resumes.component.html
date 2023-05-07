@@ -16,7 +16,7 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0" *ngIf="isEmpty == false">
             <div *ngFor="let resume of resumes">
-                <div class="custom-tab-content flex-column flex-md-row ">
+                <div class="custom-tab-content flex-column flex-md-row" (click)="navigateResume(resume.id)">
                     <div class="tab-content">
                         <h3>{{resume.firstName}}<span style="float:right;">jklllkj</span></h3>
                         <h6>{{resume.LastName}}</h6>

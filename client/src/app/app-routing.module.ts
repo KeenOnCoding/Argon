@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import { JobComponent } from './components/job/job.component';
 import { LoginComponent } from './components/login/login.component';
+import { ResumeToSendComponent } from './components/resume/resume-to-send/resume-to-send.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ResumesComponent } from './components/resumes/resumes.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'favorites', component: FavoriteComponent },
     { path: 'personal', component: InfoComponent },
     { path: 'resume/create', component: CreateresumeComponent },
+    { path: 'resume/send', component: ResumeToSendComponent },
     { path: 'resumes', component: ResumesComponent },
     { path: 'resume', component: ResumeComponent },
     { path: 'account', component: AccountComponent },

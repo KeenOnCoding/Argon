@@ -22,9 +22,10 @@ export class ResumesComponent implements OnInit {
             this.isEmpty = false;
         }
 
-        console.log(val);
     }
-
+    navigateResume(id: any) {
+        this.router.navigate(['/resume'], { queryParams: { id: id } });
+    }
     navigateCreateResume() {
         this.router.navigate(['/resume/create']);
     }

@@ -18,6 +18,7 @@ import { InfoComponent } from './components/info/info.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ResumesComponent } from './components/resumes/resumes.component';
 import { CreateresumeComponent } from './components/createresume/createresume.component';
+import { ResumeToSendComponent } from './components/resume/resume-to-send/resume-to-send.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CreateresumeComponent } from './components/createresume/createresume.co
     InfoComponent,
     FavoriteComponent,
     ResumesComponent,
-    CreateresumeComponent
+    CreateresumeComponent,
+    ResumeToSendComponent
   ],
   imports: [
     BrowserModule,

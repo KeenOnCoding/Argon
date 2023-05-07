@@ -41,11 +41,14 @@ export class CreateresumeComponent implements OnInit {
         this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        let val = this.localStr.get('resumes');
+        this.resumes = JSON.parse(val) as Resume[];
+    }
 
     createResume() {
-        
 
+        this.resume.id = this.resumes.length + 1;
         this.resumes.push(this.resume);
         this.localStr.create("resumes", this.resumes );
         this.router.navigate(['/resumes/']);

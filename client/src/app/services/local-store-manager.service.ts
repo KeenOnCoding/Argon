@@ -15,4 +15,5 @@ export class LocalStoreManager {
         let result = localStorage.getItem(key);
         return result;
     }
+    flush() { localStorage.clear(); }
 }
