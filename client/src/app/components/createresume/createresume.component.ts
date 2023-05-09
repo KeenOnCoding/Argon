@@ -14,7 +14,7 @@ import { LocalStoreManager } from '../../services/local-store-manager.service';
 export class CreateresumeComponent implements OnInit {
 
     resume: Resume = new Resume();
-    resumes: Resume[] = [];
+    resumes: Resume[];
     fromDate: NgbDate;
     toDate: NgbDate;
     hoveredDate: NgbDate;
@@ -47,10 +47,18 @@ export class CreateresumeComponent implements OnInit {
     }
 
     createResume() {
+        if (this.resumes == null) {
+            this.resumes = new Array as Resume[];
+            this.resume.id = 1;
+            this.resumes.push(this.resume);
+            this.localStr.create("resumes", this.resumes);
+            this.router.navigate(['/resumes/']);
+            return;
+        }
 
-        this.resume.id = this.resumes.length + 1;
-        this.resumes.push(this.resume);
-        this.localStr.create("resumes", this.resumes );
-        this.router.navigate(['/resumes/']);
+            this.resume.id = this.resumes.length + 1;
+            this.resumes.push(this.resume);
+            this.localStr.create("resumes", this.resumes);
+            this.router.navigate(['/resumes/']);
     }
 }

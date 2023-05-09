@@ -11,6 +11,9 @@ export class LocalStoreManager {
     create(key: string, value: any) {
         localStorage.setItem(key, JSON.stringify(value));
     }
+    delete(key: string) {
+        localStorage.removeItem(key);
+    }
     get(key: string) {
         let result = localStorage.getItem(key);
         return result;
