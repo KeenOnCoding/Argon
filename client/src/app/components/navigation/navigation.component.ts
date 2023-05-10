@@ -12,6 +12,7 @@ export class NavigationComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
+    public isEmpoyerMode = false;
     closeResult: string;
 
     constructor(public location: Location, private router: Router, private modalService: NgbModal) { }
@@ -52,6 +53,12 @@ export class NavigationComponent implements OnInit {
         else {
             return false;
         }
+    }
+    isEmpoyer() {
+        this.isEmpoyerMode = false;
+    }
+    isEmpoyee() {
+        this.isEmpoyerMode = true;
     }
     onSubmit() {
 

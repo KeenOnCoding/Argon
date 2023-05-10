@@ -30,6 +30,16 @@
                     <!--<span class="navbar-toggler-icon"></span>-->
                     <!--</button>-->
                 </li>
+                <li class="nav-item d-none d-lg-block ml-lg-4" style="padding-top:0.5rem;" *ngIf="isEmpoyerMode">
+                    <a class="btn btn-neutral btn-icon" (click)="isEmpoyer()">
+                        <span class="nav-link-inner--text">Employer</span>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-lg-block ml-lg-4" style="padding-top:0.5rem;" *ngIf="!isEmpoyerMode">
+                    <a class="btn btn-neutral btn-icon" (click)="isEmpoyee()">
+                        <span class="nav-link-inner--text">Employee</span>
+                    </a>
+                </li>
             </ul>
         </div>
             </div>
