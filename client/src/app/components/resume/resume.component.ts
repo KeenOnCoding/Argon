@@ -25,7 +25,9 @@ export class ResumeComponent implements OnInit {
     toDate: NgbDate;
 
     id: any;
+
     isEditMode = false;
+    isAddWorkplace = false;
 
     constructor(private modalService: NgbModal, calendar: NgbCalendar, private router: Router, private route: ActivatedRoute, private localStr: LocalStoreManager) {
         this.fromDate = calendar.getToday();
@@ -48,6 +50,10 @@ export class ResumeComponent implements OnInit {
     edit() {
         this.isEditMode = true;
     }
+    addWorkplace() {
+        this.isAddWorkplace = true;
+    }
+    saveAddWorkplace() { }
     save() {
         //this.resume.id = this.resumes.length + 1;
         //this.resumes.push(this.resume);
