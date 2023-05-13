@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Resume } from '../../models/resume';
+import { Resume, Workplace } from '../../models/resume';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
 
 @Component({
@@ -42,6 +42,8 @@ export class CreateresumeComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.resume.workplaces = new Array as Workplace[];
+        this.resume.workplaces.push(new Workplace());
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
     }
