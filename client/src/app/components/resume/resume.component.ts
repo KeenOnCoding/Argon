@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCalendar, NgbDate, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Resume } from '../../models/resume';
-import { DataStorageService } from '../../services/data-storage.service';
+import { Resume, Workplace } from '../../models/resume';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
 
 
@@ -11,7 +10,8 @@ import { LocalStoreManager } from '../../services/local-store-manager.service';
     templateUrl: './resume.component.html',
     styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent implements OnInit {
+export class ResumeComponent implements OnInit
+{
     page = 2;
     page1 = 3;
     active = 1;
@@ -20,6 +20,7 @@ export class ResumeComponent implements OnInit {
 
     resumes: Resume[] = [];
     resume: Resume;
+    workplace: Workplace;
 
     fromDate: NgbDate;
     toDate: NgbDate;
@@ -34,8 +35,8 @@ export class ResumeComponent implements OnInit {
         this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
 
-    ngOnInit(): void {
-        
+    ngOnInit(): void
+    {
         this.route.queryParams
             .subscribe(params => {
                 if (params['id']) {
@@ -52,13 +53,29 @@ export class ResumeComponent implements OnInit {
     }
     addWorkplace() {
         this.isAddWorkplace = true;
+        this.workplace = new Workplace();
     }
-    saveAddWorkplace() { }
+    saveAddWorkplace() {
+
+        this.resume.workplaces.push(this.workplace);
+        this.isEditMode = false;
+        this.isAddWorkplace = false;
+
+        this.localStr.delete("resumes");
+        this.localStr.create("resumes", this.resumes);
+
+        this.router.navigate(['/resumes/']);
+
+        return;
+    }
     save() {
-        //this.resume.id = this.resumes.length + 1;
-        //this.resumes.push(this.resume);
+        this.resume.id = this.resumes.length + 1;
+        this.resumes.push(this.resume);
+
         this.localStr.delete("resumes");
         this.localStr.create("resumes", this.resumes);
         this.router.navigate(['/resumes']);
+
+        return;
     }
 }
