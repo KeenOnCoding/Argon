@@ -51,6 +51,8 @@ export class ResumeComponent implements OnInit
     edit() {
         this.isEditMode = true;
     }
+    editCancel() { this.isEditMode = false; }
+    backToEditMode() { this.isEditMode = true; this.isAddWorkplace = false; }
     addWorkplace() {
         this.isAddWorkplace = true;
         this.workplace = new Workplace();
