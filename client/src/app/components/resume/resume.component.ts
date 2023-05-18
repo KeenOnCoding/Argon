@@ -51,8 +51,12 @@ export class ResumeComponent implements OnInit
     edit() {
         this.isEditMode = true;
     }
-    editCancel() { this.isEditMode = false; }
-    backToEditMode() { this.isEditMode = true; this.isAddWorkplace = false; }
+    editCancel() {
+        this.isEditMode = false;
+    }
+    backToEditMode() {
+        this.isEditMode = true; this.isAddWorkplace = false;
+    }
     addWorkplace() {
         this.isAddWorkplace = true;
         this.workplace = new Workplace();
@@ -67,6 +71,14 @@ export class ResumeComponent implements OnInit
         this.localStr.create("resumes", this.resumes);
 
         this.router.navigate(['/resumes/']);
+
+        return;
+    }
+    saveAfterEdit() {
+
+        this.localStr.delete("resumes");
+        this.localStr.create("resumes", this.resumes);
+        this.router.navigate(['/resumes']);
 
         return;
     }
