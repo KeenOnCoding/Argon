@@ -29,6 +29,8 @@ export class ResumeComponent implements OnInit
 
     isEditMode = false;
     isAddWorkplace = false;
+    isEditeWorkPlace = false;
+    isEditHeadWorkplace = false;
 
     constructor(private modalService: NgbModal, calendar: NgbCalendar, private router: Router, private route: ActivatedRoute, private localStr: LocalStoreManager) {
         this.fromDate = calendar.getToday();
@@ -60,6 +62,13 @@ export class ResumeComponent implements OnInit
     addWorkplace() {
         this.isAddWorkplace = true;
         this.workplace = new Workplace();
+        this.workplace.id = this.getRandomInt(1000);
+    }
+    editWorkPlace() {
+
+    }
+    editHeadWorkplace(){
+
     }
     saveAddWorkplace() {
 
@@ -91,5 +100,8 @@ export class ResumeComponent implements OnInit
         this.router.navigate(['/resumes']);
 
         return;
+    }
+    private getRandomInt(max) {
+        return Math.floor(Math.random() * max);
     }
 }
