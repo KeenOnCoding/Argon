@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCalendar, NgbDate, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Resume, Workplace } from '../../models/resume';
@@ -21,12 +21,17 @@ export class ResumeComponent implements OnInit
     resumes: Resume[] = [];
     resume: Resume;
     workplace: Workplace;
+    currentWorkPlace:  Workplace;
+
 
     fromDate: NgbDate;
     toDate: NgbDate;
 
+    @Input() workpaceId!: any;
+
     id: any;
 
+    isStartMode = false;
     isEditMode = false;
     isAddWorkplace = false;
     isEditeWorkPlace = false;
@@ -48,10 +53,13 @@ export class ResumeComponent implements OnInit
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
         this.resume = this.resumes.find(resume => resume.id == this.id);
-        
+        this.isStartMode = true;
     }
     edit() {
         this.isEditMode = true;
+        this.isStartMode = false;
+        this.isAddWorkplace = false;
+        this.isEditeWorkPlace = false;
     }
     editCancel() {
         this.isEditMode = false;
@@ -60,11 +68,21 @@ export class ResumeComponent implements OnInit
         this.isEditMode = true; this.isAddWorkplace = false;
     }
     addWorkplace() {
+        this.isEditMode = false;
+        this.isStartMode = false;
         this.isAddWorkplace = true;
+        this.isEditeWorkPlace = false;
         this.workplace = new Workplace();
         this.workplace.id = this.getRandomInt(1000);
     }
     editWorkPlace() {
+        this.isEditMode = false;
+        this.isStartMode = false;
+        this.isAddWorkplace = false;
+        this.isEditeWorkPlace = true;
+
+
+        this.currentWorkPlace = this.resume.workplaces.find(wp => wp == this.workpaceId )
 
     }
     editHeadWorkplace(){
@@ -80,6 +98,14 @@ export class ResumeComponent implements OnInit
         this.localStr.create("resumes", this.resumes);
 
         this.router.navigate(['/resumes/']);
+
+        return;
+    }
+    saveAfterWorkplaceEdit() {
+
+        this.localStr.delete("resumes");
+        this.localStr.create("resumes", this.resumes);
+        this.router.navigate(['/resumes']);
 
         return;
     }
