@@ -43,7 +43,11 @@ export class CreateresumeComponent implements OnInit {
 
     ngOnInit() {
         this.resume.workplaces = new Array as Workplace[];
-        this.resume.workplaces.push(new Workplace());
+        let firstWorkplace = new Workplace();
+
+        firstWorkplace.id = this.getRandomInt(1000).toString();
+        this.resume.workplaces.push(firstWorkplace);
+
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
     }
@@ -62,5 +66,9 @@ export class CreateresumeComponent implements OnInit {
             this.resumes.push(this.resume);
             this.localStr.create("resumes", this.resumes);
             this.router.navigate(['/resumes/']);
+    }
+
+    private getRandomInt(max) {
+        return Math.floor(Math.random() * max);
     }
 }

@@ -39,6 +39,9 @@
                     <div *ngFor="let workplace of resume.workplaces">
                         <div class="tab-content">
                             <h6>
+                                <b>ID:</b><span style="padding-left:2rem;">{{workplace.id}}</span>
+                            </h6>
+                            <h6>
                                 <b>Company:</b><span style="padding-left:2rem;">{{workplace.companyName}}</span>
                             </h6>
                             <span></span>
@@ -46,14 +49,14 @@
                                 <b>Industry:</b><span style="padding-left:2.5rem;">{{workplace.industry}}</span>
                             </h6>
                             <div>
-                                <button class="btn btn-0 btn-primary btn-default" [workpaceId]="workplace.id" (click)="editWorkPlace()">EDIT</button>
+                                <button class="btn btn-0 btn-primary btn-default" (click)="setWorkplceId(workplace.id); editWorkPlace()">EDIT</button>
                             </div>
                         </div>
                     </div>
                     </div>
                 </div>
         </div>
-                        <div class="row justify-content-center" *ngIf="isEditeWorkPlace">
+        <div class="row justify-content-center" *ngIf="isEditeWorkPlace">
                         <div class="col-lg-8 col-sm-8">
                             <div class="custom-tab-content flex-column flex-md-row">
                                 <div class="tab-content py-5 bg-secondary">
@@ -116,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                        <div class="row justify-content-center" *ngIf="isEditMode && isAddWorkplace">
+        <div class="row justify-content-center" *ngIf="isEditMode && isAddWorkplace">
                             <div class="col-lg-8 col-sm-8">
                                 <div class="custom-tab-content flex-column flex-md-row">
                                     <div class="tab-content py-5 bg-secondary">
@@ -174,5 +177,5 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+    </div>
 </section>

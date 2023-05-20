@@ -17,8 +17,10 @@ export class ResumesComponent implements OnInit {
 
     ngOnInit(): void {
         //this.localStr.flush();
+
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
+
         if (this.resumes != null) {
             this.isEmpty = false;
         }

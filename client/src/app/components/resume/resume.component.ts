@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCalendar, NgbDate, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Resume, Workplace } from '../../models/resume';
@@ -27,8 +27,9 @@ export class ResumeComponent implements OnInit
     fromDate: NgbDate;
     toDate: NgbDate;
 
-    @Input() workpaceId!: any;
-
+    //@Input() workplaceId: any;
+    //@Output() workplaceId = new EventEmitter<any>();
+    workplaceId: string;
     id: any;
 
     isStartMode = false;
@@ -73,7 +74,7 @@ export class ResumeComponent implements OnInit
         this.isAddWorkplace = true;
         this.isEditeWorkPlace = false;
         this.workplace = new Workplace();
-        this.workplace.id = this.getRandomInt(1000);
+        this.workplace.id = this.getRandomInt(1000).toString();
     }
     editWorkPlace() {
         this.isEditMode = false;
@@ -82,8 +83,13 @@ export class ResumeComponent implements OnInit
         this.isEditeWorkPlace = true;
 
 
-        this.currentWorkPlace = this.resume.workplaces.find(wp => wp == this.workpaceId )
-
+        //this.currentWorkPlace = new Workplace();
+        this.currentWorkPlace = this.resume.workplaces.find(wp => wp.id === this.workplaceId) as Workplace;
+    }
+    setWorkplceId(workplaceId: any) {
+        console.log(workplaceId);
+        this.workplaceId = workplaceId;
+        console.log(this.workplaceId);
     }
     editHeadWorkplace(){
 

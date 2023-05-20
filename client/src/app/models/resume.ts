@@ -7,7 +7,7 @@
     workplaces: Workplace[];
 }
 export class Workplace {
-    id: any;
+    id: string;
     position: any;
     companyName: any;
     industry: any;
