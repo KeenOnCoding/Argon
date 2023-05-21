@@ -27,8 +27,6 @@ export class ResumeComponent implements OnInit
     fromDate: NgbDate;
     toDate: NgbDate;
 
-    //@Input() workplaceId: any;
-    //@Output() workplaceId = new EventEmitter<any>();
     workplaceId: string;
     id: any;
 
@@ -65,8 +63,17 @@ export class ResumeComponent implements OnInit
     editCancel() {
         this.isEditMode = false;
     }
+    backToStartMode() {
+        this.isEditMode = false;
+        this.isStartMode = true;
+        this.isAddWorkplace = false;
+        this.isEditeWorkPlace = false;
+    }
     backToEditMode() {
-        this.isEditMode = true; this.isAddWorkplace = false;
+        this.isEditMode = true;
+        this.isStartMode = false;
+        this.isAddWorkplace = false;
+        this.isEditeWorkPlace = false;
     }
     addWorkplace() {
         this.isEditMode = false;
@@ -97,8 +104,6 @@ export class ResumeComponent implements OnInit
     saveAddWorkplace() {
 
         this.resume.workplaces.push(this.workplace);
-        this.isEditMode = false;
-        this.isAddWorkplace = false;
 
         this.localStr.delete("resumes");
         this.localStr.create("resumes", this.resumes);
