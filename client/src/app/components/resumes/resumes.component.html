@@ -25,7 +25,15 @@
                 <div style="height:20px"></div>
             </div>
         </div>
-
+        <div class="custom-tab-content flex-column flex-md-row" *ngIf="isEmpty == false">
+            <div class="col-lg-8 mt-5 mt-lg-0">
+                <div class="tab-content">
+                    <div>
+                        <button class="btn btn-0 btn-primary btn-default" (click)="navigateCreateResume()">CREATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </section>

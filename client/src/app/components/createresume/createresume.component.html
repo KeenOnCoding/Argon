@@ -6,25 +6,28 @@
                     <div class="tab-content py-5 bg-secondary">
                         <div class="row">
                             <div class="col-lg-12">
-                                <small class="d-block text-uppercase font-weight-bold mb-3">First Name</small>
-                                <div class="form-group">
-                                    <input class="form-control" [(ngModel)]="resume.firstName" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
-                                </div>
-                                <small class="d-block text-uppercase font-weight-bold mb-3">Last Name</small>
-                                <div class="form-group">
-                                    <input class="form-control" [(ngModel)]="resume.lastName" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false">
-                                </div>
-                                <small class="d-block text-uppercase font-weight-bold mb-3">Birthday</small>
-                                <div class="form-group" [ngClass]="{'focused':focus2===true}">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                <div *ngIf="isHeadEmpty">
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">First Name</small>
+                                    <div class="form-group">
+                                        <input class="form-control" [(ngModel)]="resume.firstName" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">Last Name</small>
+                                    <div class="form-group">
+                                        <input class="form-control" [(ngModel)]="resume.lastName" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">Birthday</small>
+                                    <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                            </div>
+                                            <input class="form-control datepicker" [(ngModel)]="resume.birthday" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
                                         </div>
-                                        <input class="form-control datepicker" [(ngModel)]="resume.birthday" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
                                     </div>
                                 </div>
-                                <small class="d-block text-uppercase font-weight-bold mb-3">Job Title</small>
-
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">Job Title</small>
+                            
+                             
                                 <div class="form-group">
                                     <input class="form-control" [(ngModel)]="resume.jobTitle" placeholder="Job Title" type="text" (focus)="focus=true" (blur)="focus=false">
                                 </div>
@@ -65,9 +68,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <small class="d-block text-uppercase font-weight-bold mb-3">DESCRIPTION</small>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">PROJECT DESCRIPTION</small>
                                     <div class="form-group">
-                                        <textarea class="form-control col-lg-12"> </textarea>
+                                        <textarea class="form-control col-lg-12" [value]="workplace.desctiption" (input)="workplace.desctiption = $event.target.value;"> </textarea>
+                                    </div>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">RESPONSABILITIES</small>
+                                    <div class="form-group">
+                                        <textarea class="form-control col-lg-12" [value]="workplace.responsabilities" (input)="workplace.responsabilities = $event.target.value;"> </textarea>
                                     </div>
                                 </div>
                                 <div>

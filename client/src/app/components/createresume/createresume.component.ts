@@ -22,6 +22,9 @@ export class CreateresumeComponent implements OnInit {
     model1: NgbDate;
     model2: NgbDate;
     model: NgbDate;
+    isHeadEmpty: boolean;
+
+
     focus;
     focus1;
     focus2;
@@ -50,6 +53,10 @@ export class CreateresumeComponent implements OnInit {
 
         let val = this.localStr.get('resumes');
         this.resumes = JSON.parse(val) as Resume[];
+        if (this.resumes != null || undefined) {
+            this.isHeadEmpty = false;
+        }
+        else { this.isHeadEmpty = true; }
     }
 
     createResume() {

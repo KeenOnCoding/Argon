@@ -5,6 +5,7 @@
     birthday: any;
     jobTitle: any;
     workplaces: Workplace[];
+    education: Education[];
 }
 export class Workplace {
     id: string;
@@ -14,4 +15,13 @@ export class Workplace {
     startDate: any;
     endDate: any;
     desctiption: any;
+    responsabilities: any;
+}
+export class Education {
+    id: string;
+    companyName: any;
+    spesialization: any;
+    degree: any;
+    startDate: any;
+    endDate: any;
 }
