@@ -15,13 +15,16 @@ export class CreateresumeComponent implements OnInit {
 
     resume: Resume = new Resume();
     resumes: Resume[];
+
     fromDate: NgbDate;
     toDate: NgbDate;
-    hoveredDate: NgbDate;
+
+
     closeResult: string;
-    model1: NgbDate;
-    model2: NgbDate;
-    model: NgbDate;
+
+    stertDate: NgbDate;
+    endDate: NgbDate;
+
     isHeadEmpty: boolean;
 
 

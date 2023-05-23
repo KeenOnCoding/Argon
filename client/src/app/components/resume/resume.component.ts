@@ -23,6 +23,8 @@ export class ResumeComponent implements OnInit
     workplace: Workplace;
     currentWorkPlace:  Workplace;
 
+    stertDate: NgbDate;
+    endDate: NgbDate;
 
     fromDate: NgbDate;
     toDate: NgbDate;
