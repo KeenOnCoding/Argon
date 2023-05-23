@@ -25,3 +25,6 @@ export class Education {
     startDate: any;
     endDate: any;
 }
+export class Header {
+
+}

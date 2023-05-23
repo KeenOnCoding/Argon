@@ -38,7 +38,11 @@
                                     </div>
                                     <small class="d-block text-uppercase font-weight-bold mb-3">Industry</small>
                                     <div class="form-group">
-                                        <input class="form-control" [(ngModel)]="workplace.industry" placeholder="Start Date" type="text" (focus)="focus=true" (blur)="focus=false">
+                                        <input class="form-control" [(ngModel)]="workplace.industry" placeholder="Industry" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">Position</small>
+                                    <div class="form-group">
+                                        <input class="form-control" [(ngModel)]="workplace.position" placeholder="Position" type="text" (focus)="focus=true" (blur)="focus=false">
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-sm-6">
@@ -50,7 +54,16 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                     </div>
-                                                    <input class="form-control datepicker" [(ngModel)]="workplace.startDate" placeholder="Select date" name="dp" [(ngModel)]="stertDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                                    <input class="form-control datepicker"
+                                                           [(ngModel)]="workplace.startDate"
+                                                           placeholder="Select date"
+                                                           name="dp"
+                                                           ngbDatepicker #stertDate="ngbDatepicker"
+                                                           (click)="stertDate.toggle()"
+                                                           (focus)="focus2=true"
+                                                           (blur)="focus2=false"
+                                                           type="text"
+                                                           autocomplete="off" />
                                                 </div>
                                             </div>
                                         </div>
@@ -63,14 +76,27 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                     </div>
-                                                    <input class="form-control datepicker" [(ngModel)]="workplace.endDate" placeholder="Select date" name="dp" [(ngModel)]="endDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" autocomplete="off" />
+                                                    <input class="form-control datepicker"
+                                                           [(ngModel)]="workplace.endDate"
+                                                           placeholder="Select date"
+                                                           name="dp"
+                                                           ngbDatepicker #endDate="ngbDatepicker"
+                                                           (click)="endDate.toggle()"
+                                                           (focus)="focus2=true"
+                                                           (blur)="focus2=false"
+                                                           type="text"
+                                                           autocomplete="off" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <small class="d-block text-uppercase font-weight-bold mb-3">PROJECT DESCRIPTION</small>
                                     <div class="form-group">
-                                        <textarea class="form-control col-lg-12" [value]="workplace.desctiption" (input)="workplace.desctiption = $event.target.value;" placeholder="Description"> </textarea>
+                                        <textarea class="form-control col-lg-12"
+                                                  placeholder="Description"
+                                                  [value]="workplace.desctiption" 
+                                                  (input)="workplace.desctiption = $event.target.value;" 
+                                                  > </textarea>
                                     </div>
                                     <small class="d-block text-uppercase font-weight-bold mb-3">RESPONSABILITIES</small>
                                     <div class="form-group">

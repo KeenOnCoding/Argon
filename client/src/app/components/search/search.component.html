@@ -45,7 +45,6 @@
             <div class="col-lg-8 mt-5 mt-lg-0">
                 <div *ngFor="let vacantion of result">
                     <div class="custom-tab-content flex-column flex-md-row zoom" (click)="goJob(vacantion.id)">
-                        <!--<a [routerLink]="['job']" [queryParams]="{ page:{{ vacantion.id }} }"></a>-->
                         <div class="tab-content">
                             <h3>{{vacantion.title}}<span style="float:right;">jklllkj</span></h3>
                             <h6>{{vacantion.wage}}</h6>
@@ -56,34 +55,6 @@
                     <div style="height:20px"></div>
                 </div>
             </div>
-
-
-            <!--<table class="col-lg-10">
-        <tr style="border: 1px solid black;">
-            <td >
-                <div class="col-sm-9">
-                    <h1 class="mb-0">Argon Design System</h1>
-                </div>
-            </td>
-
-            <td>
-                <div>
-                    <h4></h4>
-                </div>
-            </td>
-            <td>
-                <div>
-                    <h4>Argon</h4>
-                </div>
-            </td>
-
-        </tr>
-        <tr style="border: 1px solid black;">
-            <td class="col-sm-9">
-                <h1 class="mb-0">Argon Design System</h1>
-            </td>
-        </tr>
-    </table>-->
 </div>
 </section>
 

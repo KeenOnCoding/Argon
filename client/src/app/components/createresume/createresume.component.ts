@@ -50,7 +50,8 @@ export class CreateresumeComponent implements OnInit {
     ngOnInit() {
         this.resume.workplaces = new Array as Workplace[];
         let firstWorkplace = new Workplace();
-
+        firstWorkplace.desctiption = null;
+        firstWorkplace.responsabilities = null;
         firstWorkplace.id = this.getRandomInt(1000).toString();
         this.resume.workplaces.push(firstWorkplace);
 
