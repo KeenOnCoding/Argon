@@ -20,6 +20,7 @@ import { ResumesComponent } from './components/resumes/resumes.component';
 import { CreateresumeComponent } from './components/createresume/createresume.component';
 import { ResumeToSendComponent } from './components/resume/resume-to-send/resume-to-send.component';
 import { PersonalComponent } from './components/personal/personal.component';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { PersonalComponent } from './components/personal/personal.component';
       FormsModule,
       Ng2SearchPipeModule,
       RouterModule,
-      AppRoutingModule
+      MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
