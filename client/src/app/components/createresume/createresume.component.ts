@@ -4,6 +4,7 @@ import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Resume, Workplace } from '../../models/resume';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-createresume',
@@ -26,6 +27,62 @@ export class CreateresumeComponent implements OnInit {
     endDate: NgbDate;
 
     isHeadEmpty: boolean;
+    months = [
+        { name: "January" },
+        { name: "February" },
+        { name: "March" },
+        { name: "April" },
+        { name: "May" },
+        { name: "June" },
+        { name: "July" },
+        { name: "August" },
+        { name: "September" },
+        { name: "October" },
+        { name: "November" },
+        { name: "December" }
+    ];
+    days = [
+        { name: "1" },
+        { name: "2" },
+        { name: "3" },
+        { name: "4" },
+        { name: "5" },
+        { name: "6" },
+        { name: "7" },
+        { name: "8" },
+        { name: "9" },
+        { name: "10" },
+        { name: "11" },
+        { name: "12" },
+        { name: "13" },
+        { name: "12" },
+        { name: "15" },
+        { name: "16" },
+        { name: "17" },
+        { name: "18" },
+        { name: "19" },
+        { name: "20" },
+        { name: "21" },
+        { name: "22" },
+        { name: "23" },
+        { name: "24" },
+        { name: "25" },
+        { name: "26" },
+        { name: "27" },
+        { name: "28" },
+        { name: "29" },
+        { name: "30" },
+        { name: "31" },
+    ];
+    years = [
+        { name: "2000" },
+        { name: "2001" },
+        { name: "2002" }
+    ];
+
+    month: string = 'MONTH';
+    day: string = 'DAY';
+    year: string = 'YEAR';
 
 
     focus;
@@ -64,6 +121,8 @@ export class CreateresumeComponent implements OnInit {
     }
 
     createResume() {
+
+        console.log(this.month);
         if (this.resumes == null) {
             this.resumes = new Array as Resume[];
             this.resume.id = 1;
