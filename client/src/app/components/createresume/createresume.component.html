@@ -45,32 +45,59 @@
                                         <input class="form-control" [(ngModel)]="workplace.position" placeholder="Position" type="text" (focus)="focus=true" (blur)="focus=false">
                                     </div>
                                     <div class="row" style="padding-bottom:1rem;">
-                                        <div class="col-lg-4 col-sm-4">
-                                            <div class="mb-3">
-                                                <small class="text-uppercase font-weight-bold">Month</small>
-                                            </div>
-                                            <select class="form-control" title="Select File Name" [(ngModel)]="month" [ngClass]="{'focused':focus1===true}">
-                                                <option *ngFor="let month of months" >{{month.name}}</option>
-                                            </select>
+                                       
 
-                                        </div>
-                                        <div class="col-lg-4 col-sm-4">
-                                            <div class="mb-3">
-                                                <small class="text-uppercase font-weight-bold">Day</small>
+
+                                            <div class="col-lg-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <small class="text-uppercase font-weight-bold">Start Date</small>
+                                                </div>
+                                                <select class="form-control" 
+                                                        title="Select File Name" 
+                                                        [(ngModel)]="startMonth" 
+                                                        [ngClass]="{'focused':focus1===true}">
+                                                    <option *ngFor="let month of months">{{month.name}}</option>
+                                                </select>
+
                                             </div>
-                                            <select class="form-control" title="Select File Name" [(ngModel)]="day" [ngClass]="{'focused':focus1===true}" >
-                                                <option *ngFor="let day of days">{{day.name}}</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-4">
-                                            <div class="mb-3">
-                                                <small class="text-uppercase font-weight-bold">Year</small>
+                                            <div class="col-lg-6 col-sm-6">
+                                                <!--<div class="mb-3"><small class="text-uppercase font-weight-bold"></small></div>-->
+                                                <div class="mb-3">
+                                                    <div style="padding-top:1.5rem;"></div>
+                                                </div>
+                                                <select class="form-control"
+                                                        [(ngModel)]="startYear"
+                                                        [ngClass]="{'focused':focus1===true}">
+                                                    <option *ngFor="let year of years">{{year.name}}</option>
+                                                </select>
                                             </div>
-                                            <select class="form-control" title="Select File Name" [(ngModel)]="year" [ngClass]="{'focused':focus1===true}">
-                                                <option *ngFor="let year of years">{{year.name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                      </div>
+                                  
+                                            <div class="row" style="padding-bottom:1rem;">
+
+                                                <div class="col-lg-6 col-sm-6">
+                                                    <div class="mb-3">
+                                                        <small class="text-uppercase font-weight-bold">End Date</small>
+                                                    </div>
+                                                    <select class="form-control" title="Select File Name" [(ngModel)]="endMonth" [ngClass]="{'focused':focus1===true}">
+                                                        <option *ngFor="let month of months">{{month.name}}</option>
+                                                    </select>
+
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6">
+                                                    <div class="mb-3">
+                                                        <div style="padding-top:1.5rem;"></div>
+                                                    </div>
+                                                    <select class="form-control"
+                                                            [(ngModel)]="endYear"
+                                                            [ngClass]="{'focused':focus1===true}">
+                                                        <option *ngFor="let year of years">{{year.name}}</option>
+                                                    </select>
+                                                </div>
+
+
+
+                                            </div>
                                     <small class="d-block text-uppercase font-weight-bold mb-3">PROJECT DESCRIPTION</small>
                                     <div class="form-group">
                                         <textarea class="form-control col-lg-12"
@@ -81,7 +108,11 @@
                                     </div>
                                     <small class="d-block text-uppercase font-weight-bold mb-3">RESPONSABILITIES</small>
                                     <div class="form-group">
-                                        <textarea class="form-control col-lg-12" [value]="workplace.responsabilities" (input)="workplace.responsabilities = $event.target.value;" placeholder="Responsabilities"> </textarea>
+                                        <textarea class="form-control col-lg-12" 
+                                                  style="overflow-wrap: break-word; white-space: pre-wrap;"
+                                                  [value]="workplace.responsabilities" 
+                                                  (input)="workplace.responsabilities = $event.target.value;" 
+                                                  placeholder="Responsabilities"> </textarea>
                                     </div>
                                 </div>
                                 <div>

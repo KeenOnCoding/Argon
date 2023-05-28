@@ -80,10 +80,14 @@ export class CreateresumeComponent implements OnInit {
         { name: "2002" }
     ];
 
-    month: string = 'MONTH';
-    day: string = 'DAY';
-    year: string = 'YEAR';
 
+    //yearr: string = 'YEAR';
+
+    startMonth: string = 'MONTH';
+    startYear: string = 'MONTH';
+    endMonth: string = 'MONTH';
+    endYear: string = 'MONTH';
+    //startMonth: string = 'MONTH';
 
     focus;
     focus1;
@@ -121,8 +125,6 @@ export class CreateresumeComponent implements OnInit {
     }
 
     createResume() {
-
-        console.log(this.month);
         if (this.resumes == null) {
             this.resumes = new Array as Resume[];
             this.resume.id = 1;
