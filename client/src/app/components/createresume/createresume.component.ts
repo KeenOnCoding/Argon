@@ -83,10 +83,10 @@ export class CreateresumeComponent implements OnInit {
 
     //yearr: string = 'YEAR';
 
-    startMonth: string = 'MONTH';
-    startYear: string = 'MONTH';
-    endMonth: string = 'MONTH';
-    endYear: string = 'MONTH';
+    //startMonth: string = 'MONTH';
+    //startYear: string = 'MONTH';
+    //endMonth: string = 'MONTH';
+    //endYear: string = 'MONTH';
     //startMonth: string = 'MONTH';
 
     focus;

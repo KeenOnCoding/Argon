@@ -12,8 +12,10 @@ export class Workplace {
     position: any;
     companyName: any;
     industry: any;
-    startDate: any;
-    endDate: any;
+    startMonth: string;
+    startYear: string;
+    endMonth: string;
+    endYear: string;
     desctiption: any;
     responsabilities: any;
 }
@@ -22,8 +24,10 @@ export class Education {
     companyName: any;
     spesialization: any;
     degree: any;
-    startDate: any;
-    endDate: any;
+    startMonth: string;
+    startYear: string;
+    endMonth: string;
+    endYear: string;
 }
 export class Header {
 

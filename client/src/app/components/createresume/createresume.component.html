@@ -54,7 +54,7 @@
                                                 </div>
                                                 <select class="form-control" 
                                                         title="Select File Name" 
-                                                        [(ngModel)]="startMonth" 
+                                                        [(ngModel)]="workplace.startMonth" 
                                                         [ngClass]="{'focused':focus1===true}">
                                                     <option *ngFor="let month of months">{{month.name}}</option>
                                                 </select>
@@ -66,7 +66,7 @@
                                                     <div style="padding-top:1.5rem;"></div>
                                                 </div>
                                                 <select class="form-control"
-                                                        [(ngModel)]="startYear"
+                                                        [(ngModel)]="workplace.startYear"
                                                         [ngClass]="{'focused':focus1===true}">
                                                     <option *ngFor="let year of years">{{year.name}}</option>
                                                 </select>
@@ -79,7 +79,8 @@
                                                     <div class="mb-3">
                                                         <small class="text-uppercase font-weight-bold">End Date</small>
                                                     </div>
-                                                    <select class="form-control" title="Select File Name" [(ngModel)]="endMonth" [ngClass]="{'focused':focus1===true}">
+                                                    <select class="form-control" title="Select File Name" 
+                                                            [(ngModel)]="workplace.endMonth" [ngClass]="{'focused':focus1===true}">
                                                         <option *ngFor="let month of months">{{month.name}}</option>
                                                     </select>
 
@@ -89,7 +90,7 @@
                                                         <div style="padding-top:1.5rem;"></div>
                                                     </div>
                                                     <select class="form-control"
-                                                            [(ngModel)]="endYear"
+                                                            [(ngModel)]="workplace.endYear"
                                                             [ngClass]="{'focused':focus1===true}">
                                                         <option *ngFor="let year of years">{{year.name}}</option>
                                                     </select>
