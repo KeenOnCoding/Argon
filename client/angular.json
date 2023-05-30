@@ -72,6 +72,7 @@
           "options": {
             "port": 4200,
             "host": "192.168.0.105",
+            "disableHostCheck": true,
             "browserTarget": "client:build"
           },
           "configurations": {

@@ -22,4 +22,7 @@ export class AccountComponent implements OnInit {
     navigateFavorites() {
         this.router.navigate(['/favorites']);
     }
+    navigateVacancies() {
+        this.router.navigate(['/vacancies']);
+    }
 }
