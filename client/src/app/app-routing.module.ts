@@ -13,9 +13,11 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { ResumeToSendComponent } from './components/resume/resume-to-send/resume-to-send.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ResumesComponent } from './components/resumes/resumes.component';
+import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacancy.component';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 
 const routes: Routes = [
+    { path: 'vacancy/create', component: NewVacancyComponent },
     { path: 'vacancies', component: VacancyComponent },
     { path: 'favorites', component: FavoriteComponent },
     { path: 'personal', component: PersonalComponent },

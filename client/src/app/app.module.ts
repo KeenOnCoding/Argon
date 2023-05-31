@@ -22,6 +22,7 @@ import { ResumeToSendComponent } from './components/resume/resume-to-send/resume
 import { PersonalComponent } from './components/personal/personal.component';
 import { MaterialModule } from './material/material.module';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
+import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacancy.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { VacancyComponent } from './components/vacancy/vacancy.component';
     CreateresumeComponent,
     ResumeToSendComponent,
     PersonalComponent,
-    VacancyComponent
+    VacancyComponent,
+    NewVacancyComponent
   ],
   imports: [
     BrowserModule,
