@@ -9,8 +9,8 @@ import { DataStorageService } from '../../../services/data-storage.service';
   templateUrl: './new-vacancy.component.html',
   styleUrls: ['./new-vacancy.component.css']
 })
-export class NewVacancyComponent implements OnInit {
 
+export class NewVacancyComponent implements OnInit {
 
     focus;
 
@@ -22,13 +22,18 @@ export class NewVacancyComponent implements OnInit {
         this.vacancy = new Vacancy();
         this.vacancy.description = null;
     }
-    createVacancy() {
-        this.vacancy.id = this.getRandomInt(1000),
-            this.dataStorage.setJob(this.vacancy);
-        console.log(this.vacancy);
+    createVacancy()
+    {
+        this.vacancy.id = this.getRandomInt(100000),
+
+        this.dataStorage.vacantions.push(this.vacancy);
+
+        this.dataStorage.setJob(this.vacancy);
+
         this.router.navigate(['/home/']);
     }
-    private getRandomInt(max) {
+    private getRandomInt(max)
+    {
         return Math.floor(Math.random() * max);
     }
 
