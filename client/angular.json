@@ -72,7 +72,7 @@
           "options": {
             "sslKey": "localhost-key.pem",
             "sslCert": "localhost.pem",
-            "ssl": true,
+            //"ssl": true,
             "port": 4200,
             "host": "192.168.0.105",
             "disableHostCheck": true,

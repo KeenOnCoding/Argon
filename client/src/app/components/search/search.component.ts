@@ -13,7 +13,8 @@ import { DataStorageService } from '../../services/data-storage.service';
 
 export class SearchComponent implements OnInit, OnDestroy {
     focus;
-
+    focus2;
+    searchLocation: string;
     searchText: string;
     vacantions: Array<Vacancy>;
     result: Array<Vacancy>;

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HomeComponent } from './components/home/home.component';
@@ -24,6 +24,13 @@ import { MaterialModule } from './material/material.module';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacancy.component';
 
+
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgForOf, AsyncPipe } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -53,7 +60,11 @@ import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacanc
       FormsModule,
       Ng2SearchPipeModule,
       RouterModule,
-      MaterialModule
+      MaterialModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatAutocompleteModule,
+      ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

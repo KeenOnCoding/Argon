@@ -22,7 +22,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                             </div>
-                            <input class="form-control" [(ngModel)]="searchText" (keyup.enter)="onSubmit()" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                            <input class="form-control" 
+                                   [(ngModel)]="searchText" 
+                                   (keyup.enter)="onSubmit()" 
+                                   placeholder="Search" 
+                                   type="text" 
+                                   (focus)="focus=true" 
+                                   (blur)="focus=false">
                         </div>
                     </div>
                 </div>
@@ -30,9 +36,16 @@
                     <div class="form-group" [ngClass]="{'focused':focus===true}">
                         <div class="input-group mb-4">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                <span class="input-group-text">
+                                    <i class="ni ni-zoom-split-in"></i>
+                                </span>
                             </div>
-                            <input class="form-control" [(ngModel)]="searchText" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                            <input class="form-control" 
+                                   [(ngModel)]="searchLocation" 
+                                   placeholder="Location" 
+                                   type="text" 
+                                   (focus)="focus2=true" 
+                                   (blur)="focus2=false">
                         </div>
 
                     </div>
@@ -46,10 +59,10 @@
                 <div *ngFor="let vacantion of result">
                     <div class="custom-tab-content flex-column flex-md-row zoom" (click)="goJob(vacantion.id)">
                         <div class="tab-content">
-                            <h3>{{vacantion.title}}<span style="float:right;">jklllkj</span></h3>
+                            <h3>{{vacantion.title}}<!--<span style="float:right;">jklllkj</span>--></h3>
                             <h6>{{vacantion.wage}}</h6>
-                            <h6>{{vacantion.company}}<span style="float:right;">Seatle</span></h6>
-                            <p class="description" style="overflow-wrap: break-word; white-space: pre-wrap;">{{vacantion.description}}</p>
+                            <h6>{{vacantion.company}}<!--<span style="float:right;">Seatle</span>--></h6>
+                            <!--<p class="description" style="overflow-wrap: break-word; white-space: pre-wrap;">{{vacantion.description}}</p>-->
                         </div>
                     </div>
                     <div style="height:20px"></div>
