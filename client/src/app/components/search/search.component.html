@@ -15,46 +15,66 @@
 
 <section class="section section-components pb-0" id="section-components">
     <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="form-group" [ngClass]="{'focused':focus===true}">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                            </div>
-                            <input class="form-control" 
-                                   [(ngModel)]="searchText" 
-                                   (keyup.enter)="onSubmit()" 
-                                   placeholder="Search" 
-                                   type="text" 
-                                   (focus)="focus=true" 
-                                   (blur)="focus=false">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-6">
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                         </div>
+                        <input class="form-control"
+                               [(ngModel)]="searchText"
+                               (keyup.enter)="onSubmit()"
+                               placeholder="Search"
+                               type="text"
+                               (focus)="focus=true"
+                               (blur)="focus=false">
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="form-group" [ngClass]="{'focused':focus===true}">
-                        <div class="input-group mb-4">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="ni ni-zoom-split-in"></i>
-                                </span>
-                            </div>
-                            <input class="form-control" 
-                                   [(ngModel)]="searchLocation" 
-                                   placeholder="Location" 
-                                   type="text" 
-                                   (focus)="focus2=true" 
-                                   (blur)="focus2=false">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;" (click)="onSubmit()">Search</button>
-                </div>
-
             </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="ni ni-zoom-split-in"></i>
+                            </span>
+                        </div>
+                        <input class="form-control"
+                               [(ngModel)]="searchLocation"
+                               placeholder="Location"
+                               type="text"
+                               (focus)="focus2=true"
+                               (blur)="focus2=false">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;" (click)="onSubmit()">Search</button>
+            </div>
+
+
+            <!--<ng-autocomplete [data]="countries"
+                             [searchKeyword]="keyword"
+                             placeholder="Enter the Country Name"
+                             (selected)='selectEvent($event)'
+                             (inputChanged)='onChangeSearch($event)'
+                             (inputFocused)='onFocused($event)'
+                             historyIdentifier="countries"
+                             [itemTemplate]="itemTemplate"
+                             [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.name"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>-->
+
+        </div>
             <div class="col-lg-8 mt-5 mt-lg-0">
                 <div *ngFor="let vacantion of result">
                     <div class="custom-tab-content flex-column flex-md-row zoom" (click)="goJob(vacantion.id)">

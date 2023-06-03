@@ -18,7 +18,57 @@ export class SearchComponent implements OnInit, OnDestroy {
     searchText: string;
     vacantions: Array<Vacancy>;
     result: Array<Vacancy>;
-
+    keyword = 'name';
+    public countries = [
+        {
+            id: 1,
+            name: 'Albania',
+        },
+        {
+            id: 2,
+            name: 'Belgium',
+        },
+        {
+            id: 3,
+            name: 'Denmark',
+        },
+        {
+            id: 4,
+            name: 'Montenegro',
+        },
+        {
+            id: 5,
+            name: 'Turkey',
+        },
+        {
+            id: 6,
+            name: 'Ukraine',
+        },
+        {
+            id: 7,
+            name: 'Macedonia',
+        },
+        {
+            id: 8,
+            name: 'Slovenia',
+        },
+        {
+            id: 9,
+            name: 'Georgia',
+        },
+        {
+            id: 10,
+            name: 'India',
+        },
+        {
+            id: 11,
+            name: 'Russia',
+        },
+        {
+            id: 12,
+            name: 'Switzerland',
+        }
+    ];
     private destroy$ = new Subject();
 
     constructor(private router: Router, private data: DataStorageService) { }
@@ -30,6 +80,18 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.vacantions = this.data.vacantions;
+    }
+    selectEvent(item) {
+        // do something with selected item
+    }
+
+    onChangeSearch(search: string) {
+        // fetch remote data from here
+        // And reassign the 'data' which is binded to 'data' property.
+    }
+
+    onFocused(e) {
+        // do something
     }
     goJob(id: any) {
         this.router.navigate(['/job'], { queryParams: { id: id } });
