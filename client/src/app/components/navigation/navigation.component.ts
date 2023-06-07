@@ -3,19 +3,20 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../login/login.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import { ModeService } from '../../services/mode.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-    public isCollapsed = true;
+    public isCollapsed ;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
-    public isEmpoyerMode = false;
+    public isEmpoyeeMode = true;
     closeResult: string;
 
-    constructor(public location: Location, private router: Router, private modalService: NgbModal) { }
+    constructor(public location: Location, private router: Router, private modalService: NgbModal, private emplMode: ModeService) { }
 
     ngOnInit() {
         this.router.events.subscribe((event) => {
@@ -55,10 +56,12 @@ export class NavigationComponent implements OnInit {
         }
     }
     isEmpoyer() {
-        this.isEmpoyerMode = false;
+        this.emplMode.isEmpoyer();
+        this.isEmpoyeeMode = false;
     }
     isEmpoyee() {
-        this.isEmpoyerMode = true;
+        this.emplMode.isEmpoyee();
+        this.isEmpoyeeMode = true;
     }
     onSubmit() {
 
@@ -72,7 +75,9 @@ export class NavigationComponent implements OnInit {
         
 
     }
-
+    navigateHome() {
+        this.router.navigate(['/home']);
+    }
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';

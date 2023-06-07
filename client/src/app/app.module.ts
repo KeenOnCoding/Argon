@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HomeComponent } from './components/home/home.component';
@@ -23,10 +22,7 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { MaterialModule } from './material/material.module';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacancy.component';
-
-
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { NgForOf, AsyncPipe } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';

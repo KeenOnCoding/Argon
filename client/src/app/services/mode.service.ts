@@ -5,5 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class ModeService {
 
-  constructor() { }
+    private EmpMode: boolean = true;
+
+    getCurrentMode() {
+        return this.EmpMode;
+    }
+
+    isEmpoyer() {
+        this.EmpMode = false;
+    }
+
+    isEmpoyee() {
+        this.EmpMode = true;
+    }
+
 }

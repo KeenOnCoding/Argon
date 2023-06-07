@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModeService } from '../../services/mode.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private emplMode: ModeService) { }
 
-  ngOnInit(): void {
-  }
-
+   
+    currentEmplMode():boolean {
+        return this.emplMode.getCurrentMode();
+    }
     navigateResumes() {
         this.router.navigate(['/resumes']);
     }
