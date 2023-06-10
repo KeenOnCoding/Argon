@@ -79,9 +79,6 @@ export class NavigationComponent implements OnInit {
     navigateHome() {
         this.router.navigate(['/home']);
     }
-    collapse() {
-        return this.isCollapsed;
-    }
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';
