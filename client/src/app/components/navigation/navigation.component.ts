@@ -10,7 +10,7 @@ import { ModeService } from '../../services/mode.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-    public isCollapsed ;
+    public isCollapsed;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
     public isEmpoyeeMode = true;
@@ -19,6 +19,7 @@ export class NavigationComponent implements OnInit {
     constructor(public location: Location, private router: Router, private modalService: NgbModal, private emplMode: ModeService) { }
 
     ngOnInit() {
+        this.isCollapsed = true;
         this.router.events.subscribe((event) => {
             this.isCollapsed = true;
             if (event instanceof NavigationStart) {
@@ -77,6 +78,9 @@ export class NavigationComponent implements OnInit {
     }
     navigateHome() {
         this.router.navigate(['/home']);
+    }
+    collapse() {
+        return this.isCollapsed;
     }
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {

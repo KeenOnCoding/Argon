@@ -221,6 +221,7 @@
     .navbar-nav {
         .nav-link {
             padding: .625rem 0;
+            padding-left: 0.725rem;
             color: theme-color("default") !important;
         }
 
@@ -278,8 +279,8 @@
         .navbar-collapse-header {
             display: block;
             padding-bottom: 1rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, .1);
+            //margin-bottom: 1rem;
+            //border-bottom: 1px solid rgba(0, 0, 0, .1);
         }
 
         .collapse-brand {
