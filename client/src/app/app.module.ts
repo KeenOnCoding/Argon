@@ -22,12 +22,19 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { MaterialModule } from './material/material.module';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { NewVacancyComponent } from './components/vacancy/new-vacancy/new-vacancy.component';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgForOf, AsyncPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterPipe } from './filter.pipe';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { AutocompleteModule } from './components/autocomplete/autocomplete.module';
+import { AutocompleteDirective } from './components/autocomplete/autocomplete.directive';
+import { AutocompleteContentDirective } from './components/autocomplete/autocomplete-content.directive';
+import { OptionComponent } from './components/autocomplete/option/option.component';
 
 @NgModule({
   declarations: [
@@ -47,22 +54,22 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     ResumeToSendComponent,
     PersonalComponent,
     VacancyComponent,
-    NewVacancyComponent
-  ],
+    NewVacancyComponent,
+    FilterPipe
+    ],
+    entryComponents: [AutocompleteComponent],
   imports: [
     BrowserModule,
       AppRoutingModule,
       BrowserModule,
       NgbModule,
       FormsModule,
+      BrowserAnimationsModule,
       Ng2SearchPipeModule,
       RouterModule,
-      MaterialModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatAutocompleteModule,
       ReactiveFormsModule,
-      AutocompleteLibModule
+      OverlayModule,
+      AutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,16 +19,36 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                     <div class="input-group">
-                        <div class="input-group-prepend">
+                        <!--<div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                        </div>
-                        <input class="form-control"
-                               [(ngModel)]="searchText"
-                               (keyup.enter)="onSubmit()"
-                               placeholder="Search"
-                               type="text"
-                               (focus)="focus=true"
-                               (blur)="focus=false">
+                        </div>-->
+                            <input class="form-control"
+                                   placeholder="Search..."
+                                   [formControl]="control"
+                                   [appAutocomplete]="autocomplete">
+                        
+                        <app-autocomplete #autocomplete="appAutocomplete">
+                            <ng-template appAutocompleteContent>
+                                <ng-container *ngIf="(options | filter: control.value) as result" >
+                                    <app-option *ngFor="let option of result" 
+                                                [value]="option.label">
+                                        {{ option.label }}
+                                    </app-option>
+                                    <app-option class="no-result" 
+                                                *ngIf="!result.length">No result...</app-option>
+                                </ng-container>
+                            </ng-template>
+                        </app-autocomplete>
+                        <!--<div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                            </div>
+                            <input class="form-control"
+                                   [(ngModel)]="searchText"
+                                   (keyup.enter)="onSubmit()"
+                                   placeholder="Search"
+                                   type="text"
+                                   (focus)="focus=true"
+                                   (blur)="focus=false">-->
                     </div>
                 </div>
             </div>

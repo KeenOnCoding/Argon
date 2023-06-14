@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { Router } from "@angular/router";
 import { Vacancy } from '../../models/vacancy';
 import { DataStorageService } from '../../services/data-storage.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-seatch',
@@ -14,6 +15,7 @@ import { DataStorageService } from '../../services/data-storage.service';
 export class SearchComponent implements OnInit, OnDestroy {
     focus;
     focus2;
+    control = new FormControl();
     searchLocation: string;
     searchText: string;
     vacantions: Array<Vacancy>;
@@ -70,7 +72,12 @@ export class SearchComponent implements OnInit, OnDestroy {
         }
     ];
     private destroy$ = new Subject();
-
+    options = [
+        { id: 1, label: 'One' },
+        { id: 2, label: 'Two' },
+        { id: 3, label: 'Three' }
+    ];
+    
     constructor(private router: Router, private data: DataStorageService) { }
 
     ngOnDestroy() {
