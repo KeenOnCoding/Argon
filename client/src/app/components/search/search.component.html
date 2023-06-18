@@ -19,36 +19,28 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                     <div class="input-group">
-                        <!--<div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                        </div>-->
                             <input class="form-control"
+                                   [(ngModel)]="searchText"
                                    placeholder="Search..."
+                                   type="text"
                                    [formControl]="control"
-                                   [appAutocomplete]="autocomplete">
+                                   [appAutocomplete]="autocomplete"
+                                   (focus)="focus2=true"
+                                   (blur)="focus2=false">
                         
                         <app-autocomplete #autocomplete="appAutocomplete">
                             <ng-template appAutocompleteContent>
-                                <ng-container *ngIf="(options | filter: control.value) as result" >
-                                    <app-option *ngFor="let option of result" 
-                                                [value]="option.label">
-                                        {{ option.label }}
-                                    </app-option>
-                                    <app-option class="no-result" 
-                                                *ngIf="!result.length">No result...</app-option>
-                                </ng-container>
+                                    <ng-container *ngIf="(options | filter: control.value) as result">
+                                        <app-option *ngFor="let option of result"
+                                                    [value]="option.label"
+                                                    (click)="onSubmit(option.label)">
+                                            {{ option.label }}
+                                        </app-option>
+                                        <app-option class="no-result"
+                                                    *ngIf="!result.length">No result...</app-option>
+                                    </ng-container>
                             </ng-template>
                         </app-autocomplete>
-                        <!--<div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                            </div>
-                            <input class="form-control"
-                                   [(ngModel)]="searchText"
-                                   (keyup.enter)="onSubmit()"
-                                   placeholder="Search"
-                                   type="text"
-                                   (focus)="focus=true"
-                                   (blur)="focus=false">-->
                     </div>
                 </div>
             </div>
@@ -71,29 +63,8 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;" (click)="onSubmit()">Search</button>
+                <button class=" col-sm-12 btn btn-search btn-0 btn-primary btn-default" style="margin-top:0px;">Search</button>
             </div>
-
-
-            <!--<ng-autocomplete [data]="countries"
-                             [searchKeyword]="keyword"
-                             placeholder="Enter the Country Name"
-                             (selected)='selectEvent($event)'
-                             (inputChanged)='onChangeSearch($event)'
-                             (inputFocused)='onFocused($event)'
-                             historyIdentifier="countries"
-                             [itemTemplate]="itemTemplate"
-                             [notFoundTemplate]="notFoundTemplate">
-            </ng-autocomplete>
-
-            <ng-template #itemTemplate let-item>
-                <a [innerHTML]="item.name"></a>
-            </ng-template>
-
-            <ng-template #notFoundTemplate let-notFound>
-                <div [innerHTML]="notFound"></div>
-            </ng-template>-->
-
         </div>
             <div class="col-lg-8 mt-5 mt-lg-0">
                 <div *ngFor="let vacantion of result">

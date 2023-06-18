@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { map, Observable, startWith, Subject } from 'rxjs';
 import { Router } from "@angular/router";
 import { Vacancy } from '../../models/vacancy';
 import { DataStorageService } from '../../services/data-storage.service';
@@ -73,40 +73,28 @@ export class SearchComponent implements OnInit, OnDestroy {
     ];
     private destroy$ = new Subject();
     options = [
-        { id: 1, label: 'One' },
-        { id: 2, label: 'Two' },
-        { id: 3, label: 'Three' }
+        { id: 1, label: 'Manager' },
+        { id: 2, label: 'Developer' },
+        { id: 3, label: 'CEO' }
     ];
-    
+    filteredOptions: Observable<any>;
+
     constructor(private router: Router, private data: DataStorageService) { }
 
     ngOnDestroy() {
         this.destroy$.next(null);
         this.destroy$.unsubscribe();
     }
-
     ngOnInit() {
         this.vacantions = this.data.vacantions;
     }
-    selectEvent(item) {
-        // do something with selected item
-    }
-
-    onChangeSearch(search: string) {
-        // fetch remote data from here
-        // And reassign the 'data' which is binded to 'data' property.
-    }
-
-    onFocused(e) {
-        // do something
-    }
-    goJob(id: any) {
+    Job(id: any) {
         this.router.navigate(['/job'], { queryParams: { id: id } });
     }
-    onSubmit() {
+    onSubmit(value: any) {
         this.result = this.vacantions.filter((vacantion) => {
-            console.log(vacantion['title'].toLowerCase().includes(this.searchText));
-            return vacantion.title.toLowerCase().includes(this.searchText.toLowerCase());
+            console.log(vacantion['title'].toLowerCase().includes(value));
+            return vacantion.title.toLowerCase().includes(value.toLowerCase());
         })
     }
 
