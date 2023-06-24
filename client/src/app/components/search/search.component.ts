@@ -72,11 +72,12 @@ export class SearchComponent implements OnInit, OnDestroy {
         }
     ];
     private destroy$ = new Subject();
-    options = [
-        { id: 1, label: 'Manager' },
-        { id: 2, label: 'Developer' },
-        { id: 3, label: 'CEO' }
-    ];
+    //options = [
+    //   { id: 1, label: 'Manager' },
+    //    { id: 2, label: 'Developer' },
+    //    { id: 3, label: 'CEO' }
+    //];
+    options: string[] = ['Manager', 'Developer', 'CEO'];
     filteredOptions: Observable<any>;
 
     constructor(private router: Router, private data: DataStorageService) { }
@@ -86,9 +87,26 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.destroy$.unsubscribe();
     }
     ngOnInit() {
+        this.filteredOptions = this.control.valueChanges.pipe(
+            startWith(''),
+            map(value => this._filter(value || '')),
+        );
         this.vacantions = this.data.vacantions;
     }
-    Job(id: any) {
+    returnNull(value) {
+        if (value == undefined) {
+            console.log(value);
+            return false;
+        }
+        if (value == null) {
+            console.log(value);
+            return false;
+        }
+        console.log(value);
+        return true;
+    }
+    filter() {return this.options }
+    goJob(id: any) {
         this.router.navigate(['/job'], { queryParams: { id: id } });
     }
     onSubmit(value: any) {
@@ -97,6 +115,12 @@ export class SearchComponent implements OnInit, OnDestroy {
             return vacantion.title.toLowerCase().includes(value.toLowerCase());
         })
     }
+    private _filter(value: string){
+        const filterValue = value.toLowerCase();
 
+        return this.options.filter(option => option.toLowerCase()
+            .includes(filterValue))
+            .slice(0, 5);
+    }
 }
 

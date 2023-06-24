@@ -69,7 +69,10 @@ import { OptionComponent } from './components/autocomplete/option/option.compone
       RouterModule,
       ReactiveFormsModule,
       OverlayModule,
-      AutocompleteModule
+      AutocompleteModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
