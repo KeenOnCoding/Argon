@@ -89,20 +89,20 @@ export class SearchComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.filteredOptions = this.control.valueChanges.pipe(
             startWith(''),
-            map(value => this._filter(value || '')),
+            map(value => this._filter()),
         );
         this.vacantions = this.data.vacantions;
     }
-    returnNull(value) {
-        if (value == undefined) {
-            console.log(value);
+    checkInputForNull() {
+        if (this.searchText == undefined) {
             return false;
         }
-        if (value == null) {
-            console.log(value);
+        if (this.searchText == null) {
             return false;
         }
-        console.log(value);
+        if (this.searchText == '') {
+            return false;
+        }
         return true;
     }
     filter() {return this.options }
@@ -115,8 +115,8 @@ export class SearchComponent implements OnInit, OnDestroy {
             return vacantion.title.toLowerCase().includes(value.toLowerCase());
         })
     }
-    private _filter(value: string){
-        const filterValue = value.toLowerCase();
+    private _filter(){
+        const filterValue = this.searchText.toLowerCase();
 
         return this.options.filter(option => option.toLowerCase()
             .includes(filterValue))

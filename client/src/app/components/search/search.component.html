@@ -20,17 +20,20 @@
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                     <form class="input-group">         
                             <input class="form-control"
+                                   [(ngModel)]="searchText"
                                    type="text"
                                    placeholder="Search..."
                                    matInput
                                    [formControl]="control"
                                    [matAutocomplete]="auto">
                             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                               <div *ngIf="checkInputForNull()">
                                 <mat-option *ngFor="let option of filteredOptions | async" 
                                             [value]="option"
                                             (click)="onSubmit(option)">
                                     {{option}}
                                 </mat-option>
+                                   </div>
                             </mat-autocomplete>
                     </form>                  
     <!--<div class="input-group">
